@@ -196,7 +196,6 @@ public class ChartDemosForm extends Form {
                         boolean b = sidemenu.isVisible();
                         sidemenu.setVisible(true);
                         sidemenu.setHidden(b);
-                        sidemenu.getParent().setHidden(b);
                         Form f = sidemenu.getComponentForm();
                         f.animateLayoutAndWait(200);
                         //sidemenu.getParent().setShouldCalcPreferredSize(true);
