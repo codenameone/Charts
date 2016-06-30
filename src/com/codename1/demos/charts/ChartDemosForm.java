@@ -189,7 +189,7 @@ public class ChartDemosForm extends Form {
                 });
                 if(o == options[0]) {
                     selectedCommand = current;
-                    Button cmp = tb.findCommandComponent(current);
+                    /*Button cmp = tb.findCommandComponent(current);
                     Container sidemenu = cmp.getParent();
                     cmp.setUIID("SelectedSideCommand");
                     tb.addMaterialCommandToLeftBar("", FontImage.MATERIAL_MENU, e -> {
@@ -204,7 +204,7 @@ public class ChartDemosForm extends Form {
                         if(b) {
                             sidemenu.setVisible(false);
                         }
-                    });
+                    });*/
                 }
             }
             showChartInTablet(options[0]);
