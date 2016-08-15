@@ -61,11 +61,25 @@ public class BudgetPieChart extends AbstractDemoChart {
         return "Budget";
     }
 
+    
+    private int shiftColor(int color, double factor) {
+        return ColorUtil.rgb(
+                (int)Math.min(ColorUtil.red(color) * factor, 255) , 
+                (int)Math.min(ColorUtil.green(color) * factor, 255) ,
+                (int)Math.min(ColorUtil.blue(color) * factor, 255)
+        );
+    }
+    
     @Override
     public Component execute() {
         double[] values = new double[]{12, 14, 11, 10, 19};
         int[] colors = new int[]{ColorUtil.BLUE, ColorUtil.GREEN, ColorUtil.MAGENTA, ColorUtil.YELLOW, ColorUtil.CYAN};
         final DefaultRenderer renderer = buildCategoryRenderer(colors);
+        for (SimpleSeriesRenderer r : renderer.getSeriesRenderers()) {
+            r.setGradientEnabled(true);
+            r.setGradientStart(0, shiftColor(r.getColor(), 0.8));
+            r.setGradientStop(0, shiftColor(r.getColor(), 1.5));
+        }
         renderer.setZoomButtonsVisible(true);
         renderer.setZoomEnabled(true);
         renderer.setChartTitleTextFont(largeFont);
